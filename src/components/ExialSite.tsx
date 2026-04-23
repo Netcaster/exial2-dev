@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { NeuralWidget } from "./NeuralWidget";
 import {
@@ -89,11 +90,12 @@ const useToggle = () => useContext(ThemeCtx).toggle;
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const nav = [
-  { label: "Platform",   href: "#platform" },
-  { label: "Model",      href: "#model" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Partners",   href: "#partners" },
-  { label: "Contact",    href: "#contact" },
+  { label: "Platform",   href: "/platform/explained", route: true },
+  { label: "Model",      href: "#model",              route: false },
+  { label: "Leadership", href: "#leadership",         route: false },
+  { label: "Partners",   href: "/platform/partners",  route: true },
+  { label: "Capital",    href: "/platform/capital",   route: true },
+  { label: "Contact",    href: "#contact",            route: false },
 ];
 
 const pillars = [
@@ -228,6 +230,7 @@ function GlassCard({ children, className = "", style = {} }: { children: React.R
 function TopNav({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMobileOpen: (v: boolean) => void }) {
   const T = useT();
   const toggle = useToggle();
+  const navigate = useNavigate();
   return (
     <header
       className="sticky top-0 z-50 backdrop-blur-xl"
@@ -251,9 +254,9 @@ function TopNav({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMobileO
         {/* Desktop nav links */}
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
-            <a key={item.label} href={item.href} className="text-sm transition hover:opacity-100" style={{ color: T.muted }}>
-              {item.label}
-            </a>
+            item.route
+              ? <button key={item.label} onClick={() => navigate(item.href)} className="text-sm transition hover:opacity-100" style={{ color: T.muted, background:"none", border:"none", cursor:"pointer" }}>{item.label}</button>
+              : <a key={item.label} href={item.href} className="text-sm transition hover:opacity-100" style={{ color: T.muted }}>{item.label}</a>
           ))}
         </nav>
 
@@ -303,9 +306,9 @@ function TopNav({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMobileO
         <div style={{ borderTop: `1px solid ${T.blueBorder}`, background: T.navBg }} className="md:hidden backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6">
             {nav.map((item) => (
-              <a key={item.label} href={item.href} className="text-sm" style={{ color: T.text }} onClick={() => setMobileOpen(false)}>
-                {item.label}
-              </a>
+              item.route
+                ? <button key={item.label} onClick={() => { navigate(item.href); setMobileOpen(false); }} className="text-sm text-left" style={{ color: T.text, background:"none", border:"none", cursor:"pointer" }}>{item.label}</button>
+                : <a key={item.label} href={item.href} className="text-sm" style={{ color: T.text }} onClick={() => setMobileOpen(false)}>{item.label}</a>
             ))}
             <div className="mt-2 grid gap-2">
               <GhostBtn className="h-10 w-full">Request Access</GhostBtn>
