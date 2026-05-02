@@ -19,13 +19,11 @@ import {
   BadgeDollarSign,
   Network,
   Home,
-  Layers3,
   Users,
   LineChart,
   CheckCircle2,
   Landmark,
   BriefcaseBusiness,
-  Zap,
 } from "lucide-react";
 
 // ─── Theme tokens ─────────────────────────────────────────────────────────────
@@ -238,17 +236,8 @@ function TopNav({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMobileO
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
-          <div
-            className="flex h-10 w-10 items-center justify-center rounded-2xl"
-            style={{ background: T.blueDim, border: `1px solid ${T.blueBorder}` }}
-          >
-            <Layers3 className="h-5 w-5" style={{ color: T.blue }} />
-          </div>
-          <div>
-            <div className="text-sm font-bold tracking-[0.22em]" style={{ color: T.text }}>EXIAL</div>
-            <div className="text-[10px] uppercase tracking-[0.18em]" style={{ color: T.muted }}>TPG Infrastructure</div>
-          </div>
+        <a href="#" className="flex items-center">
+          <img src="/exial-logo.png" alt="EXIAL" className="h-10 w-auto drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
         </a>
 
         {/* Desktop nav links */}
@@ -775,8 +764,8 @@ function Footer() {
     <footer className="py-8" style={{ borderTop: `1px solid ${T.blueBorder}` }}>
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
         style={{ color: T.muted }}>
-        <div className="flex items-center gap-2">
-          <Zap className="h-4 w-4" style={{ color: T.blue }} />
+        <div className="flex items-center gap-3">
+          <img src="/exial-logo.png" alt="EXIAL" className="h-6 w-auto drop-shadow-[0_0_6px_rgba(59,130,246,0.5)]" />
           <span>© 2026 EXIAL / TPG. All rights reserved.</span>
         </div>
         <div className="flex flex-wrap items-center gap-5">
