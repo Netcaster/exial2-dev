@@ -237,7 +237,9 @@ function TopNav({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMobileO
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <img src="/exial-logo.png" alt="EXIAL" className="h-10 w-auto drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+          <div className="rounded-2xl bg-white px-3 py-1.5 shadow-[0_0_18px_rgba(59,130,246,0.25)]">
+            <img src="/exial-main-lockup.png" alt="EXIAL" className="h-14 w-auto" />
+          </div>
         </a>
 
         {/* Desktop nav links */}
@@ -765,7 +767,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
         style={{ color: T.muted }}>
         <div className="flex items-center gap-3">
-          <img src="/exial-logo.png" alt="EXIAL" className="h-6 w-auto drop-shadow-[0_0_6px_rgba(59,130,246,0.5)]" />
+          <img src="/exial-app-icon.png" alt="EXIAL" className="h-7 w-7 rounded-lg" />
           <span>© 2026 EXIAL / TPG. All rights reserved.</span>
         </div>
         <div className="flex flex-wrap items-center gap-5">
